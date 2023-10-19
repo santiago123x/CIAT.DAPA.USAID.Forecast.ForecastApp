@@ -42,11 +42,11 @@ jobs:
     - name: Remove Previous TestResults Folder
       run: rm -rf ./TestResults/ForecastApp/*
 
-    - name: Copiar dependencia desde otro repositorio
+    - name: Copy dependencies from other repo
       run: |
-        # Clona el repositorio de dependencia
-        ls
-        git clone ${{ vars.DATA_URL }} /home/runner/work/CIAT.DAPA.USAID.Forecast.ForecastApp/CIAT.DAPA.USAID.Forecast.Data
+        folder_before="$GITHUB_WORKSPACE/.."
+        ls $folder_before
+        git clone ${{ vars.DATA_URL }} $folder_before/CIAT.DAPA.USAID.Forecast.Data
 
     - name: Restore NuGet Packages
       run: dotnet restore $PROJECT_NAME.csproj
@@ -104,6 +104,11 @@ jobs:
         dotnet-version: 2.2.X
 
     #Publish ForecastApp
+    - name: Copy dependencies from other repo
+      run: |
+        folder_before="$GITHUB_WORKSPACE/.."
+        ls $folder_before
+        git clone ${{ vars.DATA_URL }} $folder_before/CIAT.DAPA.USAID.Forecast.Data
     - name: Restore NuGet Packages
       run: dotnet restore $PROJECT_NAME.csproj
     - name: Publish ForecastApp
