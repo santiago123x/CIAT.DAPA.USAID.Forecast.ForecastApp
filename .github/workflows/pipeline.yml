@@ -45,8 +45,8 @@ jobs:
     - name: Copiar dependencia desde otro repositorio
       run: |
         # Clona el repositorio de dependencia
-        ls
-        git clone ${{ vars.DATA_URL }} /home/runner/work/CIAT.DAPA.USAID.Forecast.ForecastApp/CIAT.DAPA.USAID.Forecast.Data
+        ls $GITHUB_WORKSPACE
+        git clone ${{ vars.DATA_URL }} $GITHUB_WORKSPACE/CIAT.DAPA.USAID.Forecast.ForecastApp/CIAT.DAPA.USAID.Forecast.Data
 
     - name: Restore NuGet Packages
       run: dotnet restore $PROJECT_NAME.csproj
