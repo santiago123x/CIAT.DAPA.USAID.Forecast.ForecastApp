@@ -44,7 +44,7 @@ jobs:
 
     - name: Add Data as a temporary submodule
       run: |
-        git submodule add ${{ vars.DATA_URL }} ../data-temp
+        git submodule add $DATA_URL ../data-temp
         git submodule update --init --recursive
 
     - name: Restore NuGet Packages
