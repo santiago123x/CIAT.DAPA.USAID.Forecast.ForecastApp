@@ -44,8 +44,9 @@ jobs:
 
     - name: Copy dependencies from other repo
       run: |
-        ls $GITHUB_WORKSPACE
-        git clone ${{ vars.DATA_URL }} $GITHUB_WORKSPACE/CIAT.DAPA.USAID.Forecast.Data
+        folder_before="$GITHUB_WORKSPACE/.."
+        ls $folder_before
+        git clone ${{ vars.DATA_URL }} $folder_before/CIAT.DAPA.USAID.Forecast.Data
 
     - name: Restore NuGet Packages
       run: dotnet restore $PROJECT_NAME.csproj
@@ -105,8 +106,9 @@ jobs:
     #Publish ForecastApp
     - name: Copy dependencies from other repo
       run: |
-        ls $GITHUB_WORKSPACE
-        git clone ${{ vars.DATA_URL }} $GITHUB_WORKSPACE/CIAT.DAPA.USAID.Forecast.Data
+        folder_before="$GITHUB_WORKSPACE/.."
+        ls $folder_before
+        git clone ${{ vars.DATA_URL }} $folder_before/CIAT.DAPA.USAID.Forecast.Data
     - name: Restore NuGet Packages
       run: dotnet restore $PROJECT_NAME.csproj
     - name: Publish ForecastApp
