@@ -42,6 +42,9 @@ jobs:
     - name: Remove Previous TestResults Folder
       run: rm -rf ./TestResults/ForecastApp/*
 
+    - name: Depuración
+      run: |
+        echo "Valor de DATA_URL: $DATA_URL"
     - name: Add Data as a temporary submodule
       run: |
         git submodule add $DATA_URL ../data-temp
