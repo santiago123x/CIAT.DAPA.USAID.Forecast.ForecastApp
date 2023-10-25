@@ -6,10 +6,10 @@ pipeline {
     agent any
 
     environment {
-        user = credentials('docker_user')
+        user = credentials('aclimate_user')
         host = credentials('docker_host')
         name = credentials('docker_name')
-        ssh_key = credentials('docker_devops')
+        ssh_key = credentials('aclimate_devops')
     }
 
     stages {
